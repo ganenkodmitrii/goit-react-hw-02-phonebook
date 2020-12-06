@@ -45,7 +45,7 @@ class App extends Component {
     };
 
     changeFilter = e => {
-        this.setState({ filter: e.currentTarget.filter });
+        this.setState({ filter: e.currentTarget.value });
     };
 
     getVisibleContacts = () => {
@@ -98,7 +98,7 @@ class App extends Component {
 
                     {/* <ContactList contacts={visibleContacts} /> */}
                     <ul>
-                        {this.state.contacts.map(({ id, name, number }) => (
+                        {visibleContacts.map(({ id, name, number }) => (
                             <li key={id}>
                                 <p>
                                     {name}: {number}
