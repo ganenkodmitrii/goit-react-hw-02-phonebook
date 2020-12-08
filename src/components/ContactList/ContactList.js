@@ -20,6 +20,9 @@ export default function ContactList({ contacts, onDeleteContact }) {
                     </Typography>
 
                     <Button
+                        style={{
+                            marginLeft: '10px',
+                        }}
                         type="button"
                         variant="contained"
                         color="primary"
