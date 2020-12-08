@@ -8,7 +8,13 @@ export default function ContactList({ contacts, onDeleteContact }) {
     return (
         <List>
             {contacts.map(({ id, name, number }) => (
-                <ListItem key={id}>
+                <ListItem
+                    style={{
+                        justifyContent: 'space-between',
+                        paddingLeft: '0',
+                    }}
+                    key={id}
+                >
                     <Typography variant="h6" gutterBottom>
                         {name}: {number}
                     </Typography>
@@ -29,6 +35,7 @@ export default function ContactList({ contacts, onDeleteContact }) {
     );
 }
 ContactList.propTypes = {
+    onDeleteContact: PropTypes.func.isRequired,
     contacts: PropTypes.arrayOf(
         PropTypes.shape({
             name: PropTypes.string.isRequired,

@@ -3,8 +3,6 @@ import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 
-import s from './ContactForm.module.css';
-
 import { Component } from 'react';
 
 export default class ContactForm extends Component {
@@ -34,7 +32,7 @@ export default class ContactForm extends Component {
     render() {
         const { name, number } = this.state;
         return (
-            <form className={s.form} onSubmit={this.handelSubmit}>
+            <form onSubmit={this.handelSubmit}>
                 <label htmlFor="">
                     <Typography variant="h6" gutterBottom>
                         Name
@@ -61,21 +59,23 @@ export default class ContactForm extends Component {
                         onChange={this.handleChange}
                     />
                 </label>
-                <div className={s.btnBox}>
-                    <Button type="submit" variant="contained" color="primary">
-                        Add contacts
-                    </Button>
-                </div>
+
+                <Button
+                    style={{
+                        display: 'block',
+                        marginTop: '10px',
+                    }}
+                    type="submit"
+                    variant="contained"
+                    color="primary"
+                >
+                    Add contacts
+                </Button>
             </form>
         );
     }
 }
 
 ContactForm.propTypes = {
-    contacts: PropTypes.arrayOf(
-        PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            number: PropTypes.string.isRequired,
-        }),
-    ),
+    formSubmitHandler: PropTypes.func.isRequired,
 };
